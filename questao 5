@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+
+std::string inverter(const std::string& str) {
+    std::string invertida;
+    for (int i = str.size() - 1; i >= 0; --i) {
+        invertida += str[i];
+    }
+    return invertida;
+}
+
+int main() {
+    std::string texto;
+    std::cout << "Digite uma string: ";
+    std::getline(std::cin, texto);
+    
+    std::string textoInvertido = inverter(texto);
+    std::cout << "String invertida: " << textoInvertido << std::endl;
+
+    return 0;
+}
