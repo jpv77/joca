@@ -1,0 +1,21 @@
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    double sp = 67836.43;
+    double rj = 36678.66;
+    double mg = 29229.88;
+    double es = 27165.48;
+    double outros = 19849.53;
+
+    double total = sp + rj + mg + es + outros;
+
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << "Percentual de SP: " << (sp / total) * 100 << "%" << std::endl;
+    std::cout << "Percentual de RJ: " << (rj / total) * 100 << "%" << std::endl;
+    std::cout << "Percentual de MG: " << (mg / total) * 100 << "%" << std::endl;
+    std::cout << "Percentual de ES: " << (es / total) * 100 << "%" << std::endl;
+    std::cout << "Percentual de Outros: " << (outros / total) * 100 << "%" << std::endl;
+
+    return 0;
+}
