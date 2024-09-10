@@ -1,0 +1,29 @@
+#include <iostream>
+
+bool verificaFibonacci(int num) {
+    if (num < 0) return false;
+
+    int a = 0, b = 1, c = 0;
+
+    while (c < num) {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+
+    return c == num;
+}
+
+int main() {
+    int numero;
+    std::cout << "Digite um número para verificar: ";
+    std::cin >> numero;
+
+    if (verificaFibonacci(numero)) {
+        std::cout << numero << " está na sequência de Fibonacci." << std::endl;
+    } else {
+        std::cout << numero << " não está na sequência de Fibonacci." << std::endl;
+    }
+
+    return 0;
+}
