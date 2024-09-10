@@ -1,0 +1,42 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
+
+int main() {
+    std::ifstream arquivo("faturamento.json");
+    json dados;
+    arquivo >> dados;
+
+    std::vector<double> faturamento = dados["faturamento_diario"];
+    double menor = faturamento[0];
+    double maior = faturamento[0];
+    double soma = 0.0;
+    int diasComFaturamento = 0;
+    
+    for (double valor : faturamento) {
+        if (valor > 0) {
+            soma += valor;
+            diasComFaturamento++;
+            if (valor < menor) menor = valor;
+            if (valor > maior) maior = valor;
+        }
+    }
+
+    double media = soma / diasComFaturamento;
+    int diasAcimaMedia = 0;
+
+    for (double valor : faturamento) {
+        if (valor > media) {
+            diasAcimaMedia++;
+        }
+    }
+
+    std::cout << "Menor valor de faturamento: R$" << menor << std::endl;
+    std::cout << "Maior valor de faturamento: R$" << maior << std::endl;
+    std::cout << "Número de dias com faturamento acima da média: " << diasAcimaMedia << std::endl;
+
+    return 0;
+}
